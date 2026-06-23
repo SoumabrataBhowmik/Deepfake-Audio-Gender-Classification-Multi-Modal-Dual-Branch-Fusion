@@ -23,7 +23,6 @@ The dataset contains a total of 18,003 `.wav` audio files distributed across tra
 | **2** | `Female_Fake` | Synthetic Female audio, potentially distorted or degraded. |
 | **3** | `Male_Fake` | Synthetic Male audio, potentially distorted or degraded. |
 
-*Submissions are evaluated based on the **Macro F1-Score** across all four classes.*
 
 ---
 
