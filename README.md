@@ -119,12 +119,32 @@ The dual-branch fusion model demonstrated rapid convergence, hitting a validatio
 ![Training History](training_history.png)
 
 
-## 🚀 Installation & Usage
 
-### 1. Environment Setup
-Install the necessary dependencies. Note: Ensure you have SoX installed on your system (`sudo apt-get install sox libsox-fmt-all` on Ubuntu) for Torchaudio augmentations to function properly.
+### Visual Architecture
 
-```bash
-pip install torch torchvision torchaudio transformers librosa soundfile scikit-learn pandas tqdm
-
+```mermaid
+graph TD
+    A[Raw Audio Input] --> B{Branch Split}
+    
+    %% Transformer Branch
+    B -->|1D Waveform| C[WavLM Base Plus]
+    C --> D[Mean Pooling]
+    D --> E[768-dim Embedding]
+    
+    %% CNN Branch
+    B -->|Precomputation| F[Mel Spectrogram + CQT]
+    F --> G[SpecAugment]
+    G --> H[ResNet50]
+    H --> I[Adaptive Avg Pooling]
+    I --> J[2048-dim Embedding]
+    
+    %% Fusion
+    E --> K((Concatenation))
+    J --> K
+    
+    %% Classification Head
+    K --> L[2816-dim Vector]
+    L --> M[Linear 1024 + ReLU + Dropout]
+    M --> N[Linear 512 + ReLU + Dropout]
+    N --> O([Output: 4 Classes])
 
