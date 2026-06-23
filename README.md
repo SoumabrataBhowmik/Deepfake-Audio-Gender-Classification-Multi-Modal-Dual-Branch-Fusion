@@ -8,7 +8,7 @@
 ## 📌 Problem Statement
 **Theme:** Hack the Fake, Save the Real Challenge: Deepfake Audio Classification in the Wild.
 
-With the proliferation of generative AI, synthetic audios can convincingly imitate human voices, posing severe threats to digital trust. This repository contains a deep learning pipeline developed for **Task B: Gender classification for Real vs. Fake Voices**. The goal is to accurately distinguish between real and synthetic voices while simultaneously classifying the speaker's gender under real-world, noisy conditions.
+With the proliferation of generative AI, synthetic audios can convincingly imitate human voices, posing severe threats to digital trust. This repository contains a deep learning pipeline developed for **Task: Gender classification for Real vs. Fake Voices**. The goal is to accurately distinguish between real and synthetic voices while simultaneously classifying the speaker's gender under real-world, noisy conditions.
 
 ---
 
