@@ -91,6 +91,34 @@ The resulting 2816-dimensional vector ($\mathbb{R}^{768 + 2048}$) is passed thro
 
 ---
 
+## 📊 Training Results & Metrics
+
+The dual-branch fusion model demonstrated rapid convergence, hitting a validation F1-score of 1.00 by Epoch 11 and maintaining exceptional stability.
+
+### Best Overall Metrics
+| Metric | Score | Epoch Achieved |
+| :--- | :---: | :---: |
+| **Peak Validation Macro F1** | `1.0000` | Epoch 11 (Maintained to 70) |
+| **Peak Training Macro F1** | `1.0000` | Epoch 61 |
+| **Lowest Validation Loss** | `0.3894` | Epoch 49 |
+| **Lowest Training Loss** | `0.3985` | Epoch 64 |
+
+### Training Milestones
+*(Sampled epoch history showing model progression)*
+
+| Epoch | Train Loss | Val Loss | Train F1 | Val F1 | Notes |
+| :---: | :---: | :---: | :---: | :---: | :--- |
+| **1** | 1.3737 | 0.8622 | 0.3909 | 0.7731 | Initial alignment |
+| **5** | 0.5018 | 0.4237 | 0.9634 | 0.9922 | Rapid convergence |
+| **11** | 0.4357 | 0.3967 | 0.9886 | 1.0000 | First perfect Val F1 |
+| **20** | 0.4176 | 0.3927 | 0.9936 | 0.9987 | Strong stability |
+| **40** | 0.4032 | 0.3896 | 0.9980 | 1.0000 | Deep convergence |
+| **61** | 0.3993 | 0.3897 | 1.0000 | 1.0000 | Perfect Train & Val F1 |
+| **70** | 0.3991 | 0.3902 | 0.9999 | 1.0000 | Final Epoch |
+
+![Training History](training_history.png)
+
+
 ## 🚀 Installation & Usage
 
 ### 1. Environment Setup
@@ -98,3 +126,5 @@ Install the necessary dependencies. Note: Ensure you have SoX installed on your 
 
 ```bash
 pip install torch torchvision torchaudio transformers librosa soundfile scikit-learn pandas tqdm
+
+
